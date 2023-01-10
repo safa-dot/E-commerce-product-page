@@ -38,34 +38,72 @@ li {
 	display: none;
 }
 
+.profile .cart:hover .cartImg {
+	opacity: 0.7;
+}
+
 .profile .cartContent {
 	display: none;
 }
 
-.profile:hover .cartContent {
-	display: block;
-}
 .profile .profileImg img:hover {
 	border: 2px solid hsl(26, 100%, 55%);
 	border-radius: 100%;
 }
 
 .profile .card {
-	width: 18rem;
-	height: 16rem;
+	width: 28%!important;
+	height: auto;
 	position: absolute;
+	right: 20px;
 	border: none;
 	box-shadow: -1px 12px 37px -5px rgba(0, 0, 0, 0.48);
 	-webkit-box-shadow: -1px 12px 37px -5px rgba(0, 0, 0, 0.48);
 	-moz-box-shadow: -1px 12px 37px -5px rgba(0, 0, 0, 0.48);
+	z-index: 1111111;
 }
 .profile .card .card-header {
 	background-color: white;
 }
 
-.profile .card p {
-	margin: 0 auto;
-	text-align: center;
+.profile .card .cartImage {
+	width: 60px;
+	height: auto;
+	border-radius: 10px;
+	object-fit: contain;
+}
+
+.profile .card .trashCan {
+	object-fit: contain;
+}
+/* classes added to javascript */
+.desc {
+	display: flex;
+	object-fit: contain;
+	margin: 0;
+	text-align: left;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding-bottom: 20px;
+}
+.paragraphe {
+	padding: 10px 10px 0px 10px;
+}
+/* ----------------------------------- */
+.profile .card-body {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: space-between;
+}
+.profile .card-body button {
+	height: 45px;
+	border: none;
+	display: none;
+	background-color: hsl(26, 100%, 55%) !important;
+	border-radius: 10px;
+	color: white;
 	font-weight: bold;
 }
 
@@ -167,9 +205,9 @@ input::-webkit-inner-spin-button {
 	}
 
 	.profile .card {
+		width: 40% !important;
 		position: absolute;
-		transform: translate(-85%);
-		width: 80%;
+		transform: translate(0%, 10%);
 	}
 	.content {
 		margin: 0 auto;
@@ -293,9 +331,9 @@ input::-webkit-inner-spin-button {
 	}
 
 	.profile .card {
+		width: 70% !important;
 		position: absolute;
-		transform: translate(-85%);
-		width: 80%;
+		transform: translate(0%, 10%);
 	}
 
 	.content {
