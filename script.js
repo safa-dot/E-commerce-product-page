@@ -8,13 +8,27 @@ function closeNav() {
     document.querySelector(".navContent .menu .list ").style.display = "none";
     document.querySelector('.navContent .menu ').style.width = "0px";
 }
+// show cart on click--------------------------------------
+
+function showCart() {
+    let cart = document.querySelector(".cartContent");
+    if (cart.style.display === "block") {
+        cart.style.display = "none";
+    } else {
+        cart.style.display = "block";
+    }
+}
+
+
+
+
 
 // active class on clicking an image------------------------------
 
 // Get the container element
 var thumbnailsContainer = document.querySelector(".thumbnails");
 
-// Get all buttons with class="btn" inside the container
+// Get all buttons with class="thumbnail" inside the container
 var thumbnails = thumbnailsContainer.querySelectorAll(".thumbnail");
 
 // Loop through the buttons and add the active class to the current/clicked button
@@ -40,7 +54,7 @@ function myFunction(imgs) {
 
 
 
-// slid show images
+// slid show images mobile ---------------------------------------
 
 // the variables of the image slider
 const image = document.querySelector(".display");
@@ -83,7 +97,7 @@ prevBtn.addEventListener("click", function () {
     showImage(currentImage);
 });
 
-// add or remove items filed-----------------------------------------------------
+// add or remove items field-----------------------------------------------------
 // Select increment and decrement buttons
 let incrementCount = document.getElementById("plus");
 let decrementCount = document.getElementById("minus");
@@ -126,6 +140,10 @@ badge.innerHTML = 0;
 let cardBody = document.querySelector('.card-body');
 //  function to add items to the cart
 let addToCart = () => {
+
+    document.querySelector('.card-body .empty-cart').style.display = 'none';
+
+
     badge.innerHTML = totalCount.innerHTML;
 
     // add items number and total price to the card body
@@ -133,19 +151,53 @@ let addToCart = () => {
 
     let itemNumber = badge.innerHTML;
     let total = 125.00 * itemNumber;
+    let chekout = document.querySelector('.checkout');
 
-    if (itemNumber !== 0) {
-        cardBody.innerHTML = `you have ${itemNumber} items <br> 125.00$ * ${itemNumber} <br> Total = ${total}.00$ <br> `;
+    if (itemNumber > 0) {
+        let cardBody = document.querySelector('.card-body');
+        let purchase = document.createElement('p');
+        let cartImage = document.createElement('img');
+        let desc = document.createElement('div');
+        desc.classList.add("desc");
 
-    } else {
-        cardBody.innerHTML = `Your cart is empty`;
+        purchase.innerHTML = `Fall Limited Edition Sneakers <br> $125.00 &#215 ${itemNumber} <b>${total}.00</b> `;
+        purchase.classList.add("paragraphe");
+
+        // add item image
+        cartImage.setAttribute('src', `./images/image-product-1.jpg`);
+        cartImage.classList.add("cartImage");
+
+        // remove purchase
+        let trash_can = document.createElement("img");
+        trash_can.setAttribute("src", "./images/icon-delete.svg");
+        trash_can.classList.add("trashCan");
+        trash_can.addEventListener('click', deleteParent);
+
+
+
+        desc.appendChild(cartImage);
+        desc.appendChild(purchase);
+        desc.appendChild(trash_can);
+        cardBody.appendChild(desc);
+
+
+
+        function deleteParent(event) {
+            event.target.parentNode.remove();
+
+        }
+        // checkout button
+        chekout.style.display = 'block';
+
+
     }
+
+
 };
 
-// Add click event to button
+// Add click event to add to cart button
 addBtn.addEventListener("click", addToCart);
 
-// -----------------------------------------------------------------------------------------
 
 
 
