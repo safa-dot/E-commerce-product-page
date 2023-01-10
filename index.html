@@ -61,17 +61,27 @@
 								<span
 									id="badge1"
 									class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-									style="background-color: hsl(26, 100%, 55%)"
+									style="background-color: hsl(26, 100%, 55%); z-index: 111"
 								>
 								</span>
-								<img class="col-10" src="./images/icon-cart.svg" alt="" />
+								<img
+									class="col-10 cartImg"
+									src="./images/icon-cart.svg"
+									alt=""
+									onclick="showCart()"
+								/>
 							</div>
 
 							<div class="row cartContent">
 								<div class="card mt-3">
 									<div class="card-header">Cart</div>
-									<div class=" ">
-										<p class="pt-4 card-body">Your cart is empty</p>
+									<div class="card-body">
+										<p class="empty-cart text-center">
+											<b>Your cart is empty</b>
+										</p>
+										<button class="col-12 checkout" id="checkout">
+											Checkout
+										</button>
 									</div>
 								</div>
 							</div>
@@ -85,8 +95,8 @@
 		</section>
 
 		<!-- content -->
-		<section class="content pt-3">
-			<div class="container-fluid p-5">
+		<section class="content">
+			<div class="container-fluid pt-2 p-5">
 				<div class="row ps-5 contentContainer justify-content-center">
 					<div class="preview col-5 p-5 justify-content-between">
 						<div class="row mainImg col-12" id="mainImg">
@@ -168,6 +178,7 @@
 										type="number"
 										min="0"
 										placeholder=""
+										value="0"
 									/>
 								</div>
 								<div class="col-4 plus" id="plus">
@@ -175,7 +186,7 @@
 								</div>
 							</div>
 							<div class="col-6 cartButton">
-								<button class="col-12 cartBtn" id="cartBtn">
+								<button class="col-12 cartBtn" id="cartBtn" value="clear">
 									<img class="pe-2" src="./images/icon-cart.svg" alt="" /> Add
 									to cart
 								</button>
